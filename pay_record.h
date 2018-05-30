@@ -16,7 +16,7 @@ class PayRecord{
 
     public:
         PayRecord();
-        void add_record(string, double, int);
+        void add_record(string, double, string);
         void add_record(void);
         void add_user(string, string);
         int number_of_records();

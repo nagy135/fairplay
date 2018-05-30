@@ -1,27 +1,23 @@
 #include <iostream>
 #include "pay_record.h"
 #include <string>
+#include <vector>
 
 using namespace std;
 
 void tests(){
-    /* PayRecord *pr = new PayRecord(); */
-    /* cout << pr->number_of_records() << endl; */
     PayRecord pr;
     pr.add_user("Viktor", "Nagy");
     pr.add_user("Matinka", "Ondrejkova");
-    pr.add_record("Umyvaren", 3.16, 3);
-    pr.add_record("Benzin", 8.16, 2);
-    pr.add_record("Jedlo", 9.18, 3);
-    pr.add_record("Jedlo", 9.18, 3);
-    pr.add_record("Jedlo", 9.18, 3);
-    pr.add_record("Umyvaren", 3.16, 3);
-
-    /* pr->add_record("Umyvaren", 3.16, 3); */
-    /* cout << pr->number_of_records() << endl; */
-    /* pr->add_user(); */
-    pr.list_records();
+    pr.add_user("Martin", "Doke");
     pr.list_users();
+
+    pr.add_record("Jedlo", 9.18, "0 1");
+    pr.add_record("Umyvaren", 3.16, "0 1 2");
+    pr.add_record("Lietadlo", 8.16, "0 2");
+    pr.add_record("Bus", 8.16, "0");
+
+    pr.list_records();
 }
 
 int main() {

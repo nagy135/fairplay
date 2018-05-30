@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include "pay_record.h"
 
 using namespace std;
@@ -10,19 +11,26 @@ PayRecord::PayRecord(void){
     payment_arr_size = 10;
     users_arr.reserve(10);
 }
-void PayRecord::add_record(string label, double new_price, int num_particip){
-    cout << "Adding" << endl;
-
+void PayRecord::add_record(string label, double new_price, string participants){
     Payment temp_payment;
+
     temp_payment.set_price(new_price);
-    temp_payment.set_num_participants(num_particip);
     temp_payment.set_label(label);
+
+    vector<int> partic_arr;
+    partic_arr.reserve(num_people);
+    stringstream ss(participants);
+    int sub_int;
+    while ( ss >> sub_int ){
+        partic_arr.push_back(sub_int);
+    }
+    temp_payment.set_participants(partic_arr);
+
+    temp_payment.set_num_participants(partic_arr.size());
     payment_arr.push_back(temp_payment);
     num_records++;
 }
 void PayRecord::add_record(void){
-    cout << "Adding manually" << endl;
-
     Payment *temp_ptr;
     temp_ptr = (ptr + num_records);
     string temp_label;
