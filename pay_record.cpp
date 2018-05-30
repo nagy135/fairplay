@@ -46,15 +46,22 @@ void PayRecord::add_record(void){
     num_records++;
 }
 void PayRecord::list_records(void){
-    Payment *temp_ptr;
     for (int i=0; i < num_records; i++){
         payment_arr[i].repr();
+    }
+}
+void PayRecord::list_users(void){
+    for (int i=0; i < num_people; i++){
+        users_arr[i].hey();
     }
 }
 int PayRecord::number_of_records(void){
     return num_records;
 }
-void PayRecord::add_user(string, string){
+void PayRecord::add_user(string fn, string sn){
     cout << "Creating new user" << endl;
+    User temp_user;
+    temp_user.set_full_name(fn, sn);
+    users_arr.push_back(temp_user);
     num_people++;
 }

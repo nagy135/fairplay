@@ -21,4 +21,5 @@ class PayRecord{
         void add_user(string, string);
         int number_of_records();
         void list_records(void);
+        void list_users(void);
 };
